@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+enum fruits {
+GRAPES = 10,
+ORANGES= 20,
+APPLES= 30,
+BANANAS= 40
+} buy;
+enum day { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday };
+int main()
+{
+   buy = GRAPES;
+day d = Wednesday;
+if(d== Wednesday && buy == GRAPES){
+cout<<"I bought grapes on Wednesday"<<endl;
+   }
+return 0;
+}
