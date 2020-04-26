@@ -1,0 +1,34 @@
+public static void expr() {
+		System.out.println("Enter", expr());
+    String c;
+    while(c == "+" || c=="-"){
+      lex();
+      term();
+		System.out.println("Exit");
+	}
+public static term expr() {
+		System.out.println("Enter", term());
+    String c;
+    while(c == "*" || c=="/"){
+      lex();
+      factor();
+		System.out.println("Exit");
+	}
+public static term factor() {
+		System.out.println("Enter", factor());
+    String c;
+    if (c == id || c == int)
+       lex();
+   else { if (c == "(") {
+       lex();
+       expr();
+       if (c == ")")
+          lex();
+       else
+         throw new Exception("Error");
+       }
+       else
+       throw new Exception("Error");
+   }
+		System.out.println("Exit");
+	}
