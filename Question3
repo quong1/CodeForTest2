@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<time.h>
+#include <stdlib.h> 
+
+void static_ex(void);
+void stack_ex(void);
+void heap_ex(void);
+
+main(void)
+{
+struct timespec time1, time2;
+int i;
+clock_gettime(ClOCK_REALTIME, &time1);
+for ( i=0, i <500000, i++){
+ 	static_ex();
+}
+clock_gettime(CLOCK_REALTIME, &time2);
+printf (“It took %d seconds to call static_ex 500,000 times .\n”, time2.tv_sec – time1.tv_sec);
+
+clock_gettime(CLOCK_REALTIME, &time1);
+for ( i=0, i <500000, i++){
+ 	stack_ex();
+}
+clock_gettime(CLOCK_REALTIME, &time2);
+printf (“It took %d seconds to call stack_ex 500,000 times .\n”, time2.tv_sec – time1.tv_sec);
+clock_gettime(CLOCK_REALTIME, &time1);
+for ( i=0, i <200000, i++){
+ 	heap_ex();
+}
+clock_gettime(CLOCK_REALTIME, &time2);
+printf (“It took %f seconds to call heap_ex 500,000 times .\n”, difftime(time2.tv_sec – time1.tv_sec));
+}
+
+void static_ex(void){
+	static int a[250000];
+}
+void stack_ex(void){
+ 	int b[250000];
+}
+void heap_ex(void){
+ 	int *c = (int *) malloc(250000*sizeof(int));
+}
