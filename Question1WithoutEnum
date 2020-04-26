@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int buy[] = {0,1,2,3};
+int day[] = {0,1,2,3,5,6,7};
+int w = day[0];
+int b = buy[0];
+if(w==2 && g==0){
+cout<<" I bought grapes on Wednesday "<<endl;
+   }
+return 0;
