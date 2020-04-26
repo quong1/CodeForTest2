@@ -1,0 +1,16 @@
+$x = 1; //global value
+
+sub function {
+return $x;
+}
+
+sub static {
+my $x = 2;
+return function();
+}
+sub dynamic {
+local $x = 3;
+return function();
+}
+print "Static scope, x is ", static(), "\n";
+print "Dynamic scope, x is ", dynamic(), "\n";
